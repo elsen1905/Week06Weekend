@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    background: url('img/hdgAJPGeUu2pXHaAAAAAElFTkSuQmCC.png') repeat;
+/
+}
+	.main_wheel{
+		    -webkit-transition: -webkit-transform 3s ease-out;
+    transition-duration: 3s;
+	}
+.main_wheel{
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+}
+.wheel{
+	/*height: 762px;*/
+	padding: 8.5% 0 4%;
+	/*width:63.5%;*/
+	 width: 44.4%;
+	margin:0 auto;
+	/*padding: 0;*/
+	position: relative ;
+	z-index: 2;
+	background:url(img/wheel-shadow.png) no-repeat center bottom transparent;
+	background-size:104%;
+} 
+.wheel::after{}
+.pointer-div{height: auto;
+    margin: 0 auto;
+    position: absolute;
+    right: -16.5%;
+    top: 50.5%;
+    width: 19.4%;z-index:3;}
+.pointer{
+	 display: block;
+    height: auto;
+    width: 100%;
+}
+.spin{
+    background: url('img/spin.png');
+    width: 355px;
+    height: 322px;
+    position: absolute;
+    top: 13%;
+    left: 72%;
+	 }
+.coins{
+	background: url('img/coins.png');
+	width: 267px;
+	height: 107px;
+	position: absolute;
+	top: 13%;
+	right:77%; 
+}
+
+
+
+.move{	animation: mymove 0.25s infinite;
+-webkit-animation-name: mymove;
+-webkit-animation-duration: .25s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-timing-function: ease;
+}
+
+
+
+</style>
+
+</head>
+<body>
+<div class="wheel">
+<div class="pointer-div">
+				<img class="pointer move" src="img/pointer.png" alt="Pointer" title="Pointer" height="88" width="236" style="animation: none; zoom: 1;">
+				</div>
+<img class="main_wheel"  onclick="firlat()" src="img/wheel_main.png">
+</div>
+<div class="spin" onclick="firlat()"></div>
+<div class="coins" ></div>
+<script type="text/javascript">
+	 
+	function firlat(){
+		var x = 100;
+	 var rand = Math.floor(Math.random() * 100);
+	 var deg= rand*18;
+		document.getElementsByTagName('img')[1].style.transform="rotate("+deg+"deg)";
+		var qaliq=rand%20;
+		if(qaliq%2==1 || qaliq==1){
+			
+			setTimeout(function(){alert("lose")},4000);
+		}
+		else if(qaliq==6||qaliq==12||qaliq==16){
+			setTimeout(function(){alert("coinsX2")},4000);
+		}
+		else{
+			
+			setTimeout(function(){alert("safe")},4000);
+		}
+	
+
+	}
+	// bu hisse qaldi	
+	// 	var point_deg=-35;
+	// function pointer() {
+ //  		document.getElementsByTagName("img")[0].style.webkitTransform = 'rotate('+point_deg+'deg)'
+ //  		if (point_deg==-35) {
+ //  		point_deg=0;
+ //  		}
+ //  		else{
+ //  			point_deg=-35
+ //  		}
+ //  	}
+ //  	// var sss=setInterval(function () {
+ //  	// 	pointer();
+ //  	// },182)
+ //  	// setTimeout(function () {
+ //  	// 	 clearInterval(sss)
+ //  	// },2000)
+</script>
+</div>
+</body>
+</html>
